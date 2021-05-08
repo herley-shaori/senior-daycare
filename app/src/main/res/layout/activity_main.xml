@@ -12,7 +12,6 @@
         android:layout_height="0sp"
         android:layout_marginTop="3dp"
         android:layout_weight="0.1"
-        android:background="#3F51B5"
         android:orientation="horizontal">
 
         <Button
@@ -86,37 +85,42 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.3"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:text="Daycare date:"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="0.4"
-                android:orientation="horizontal">
+                android:layout_marginTop="0dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical"
+                >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="6dp"
-                    android:layout_marginBottom="6dp"
+                    android:layout_marginBottom="90dp"
                     android:layout_weight="0.1"
                     android:background="@drawable/textfield_border"
                     android:gravity="center"
                     android:outlineAmbientShadowColor="@color/black"
                     android:text="Ini adalah teks"
-                    android:textSize="32dp" />
+                    android:textSize="18dp" />
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="85dp"
                     android:layout_weight="0.3"
                     android:backgroundTint="#2C2020"
                     android:text="Pick a Date"
@@ -128,7 +132,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.4">
+            android:layout_weight="0.6">
 
             <Button
                 android:layout_width="match_parent"
@@ -148,7 +152,6 @@
         android:layout_height="0sp"
         android:layout_marginTop="10sp"
         android:layout_weight="0.1"
-        android:background="#3F51B5"
         android:orientation="horizontal">
 
         <Button
