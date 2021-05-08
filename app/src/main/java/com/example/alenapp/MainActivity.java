@@ -1,6 +1,11 @@
 package com.example.alenapp;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,16 +16,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         ActionBar supportActionBar = this.getSupportActionBar();
+        // Action bar icon.
         supportActionBar.setDisplayShowCustomEnabled(true);
-        supportActionBar.setIcon(R.drawable.senja_apps);
+        LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = layoutInflater.inflate(R.layout.custom_action_bar_images, null);
+        supportActionBar.setCustomView(view);
 
-
-//        ActionBar actionBar = this.getActionBar();
-//        actionBar.setDisplayHomeAsUpEnabled(true);
-//        actionBar.setIcon(R.drawable.senja_apps.);
-//        this.getActionBar().setDisplayHomeAsUpEnabled(true);
+        // Action bar background color.
+        supportActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF")));
 
         setContentView(R.layout.activity_main);
     }
