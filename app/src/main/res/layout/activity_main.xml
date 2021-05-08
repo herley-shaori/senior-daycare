@@ -134,7 +134,6 @@
                     android:textSize="11sp"
                     android:text="Pick a Date"
                     android:textAllCaps="false"
-
                     />
             </LinearLayout>
         </LinearLayout>
