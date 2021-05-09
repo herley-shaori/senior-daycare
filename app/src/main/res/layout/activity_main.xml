@@ -15,6 +15,7 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/senior_daycare"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
@@ -25,6 +26,7 @@
             />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/antar_jemput"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
@@ -35,6 +37,7 @@
             />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/event"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
@@ -109,6 +112,7 @@
                 >
 
                 <TextView
+                    android:id="@+id/daycare_date"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="6dp"
@@ -117,15 +121,16 @@
                     android:background="@drawable/textfield_border"
                     android:gravity="center"
                     android:outlineAmbientShadowColor="@color/black"
-                    android:text="Ini adalah teks"
-                    android:textSize="18dp" />
+                    android:text="No date selected."
+                    android:textSize="24dp" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/date_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="85dp"
                     android:layout_weight="0.3"
-                    android:backgroundTint="#2C2020"
+                    android:background="@drawable/other_button"
                     android:text="Pick a Date"
                     android:textAllCaps="false"
                     android:textSize="11sp" />
@@ -138,6 +143,7 @@
             android:layout_weight="0.6">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/go_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -159,6 +165,7 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
@@ -167,6 +174,7 @@
             android:text="Home" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/my_order"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
@@ -175,6 +183,7 @@
             android:text="My Order" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/elite_rewards"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
