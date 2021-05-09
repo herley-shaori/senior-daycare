@@ -14,32 +14,35 @@
         android:layout_weight="0.1"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
             android:layout_weight="0.3"
-            android:backgroundTint="#121111"
             android:text="Senior Daycare"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:background="@drawable/other_button"
+            />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
             android:layout_weight="0.3"
-            android:backgroundTint="#121111"
             android:text="Antar Jemput"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@drawable/other_button"
+            />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
             android:layout_weight="0.3"
-            android:backgroundTint="#121111"
             android:text="Event"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@drawable/other_button"
+            />
 
     </LinearLayout>
 
@@ -134,13 +137,14 @@
             android:layout_height="match_parent"
             android:layout_weight="0.6">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="100dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="100dp"
-                android:text="Let's Go"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/go_button"
+                android:text="Let's Go!"
                 android:textAllCaps="false" />
 
         </LinearLayout>
@@ -154,28 +158,28 @@
         android:layout_weight="0.1"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
             android:layout_weight="0.3"
-            android:backgroundTint="#121111"
+            android:background="@drawable/other_button"
             android:text="Home" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
             android:layout_weight="0.3"
-            android:backgroundTint="#121111"
+            android:background="@drawable/other_button"
             android:text="My Order" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
             android:layout_weight="0.3"
-            android:backgroundTint="#121111"
+            android:background="@drawable/other_button"
             android:text="Elite Rewards"
             android:textSize="10dp" />
 
