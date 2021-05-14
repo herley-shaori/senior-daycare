@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3D3D3">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/daycare_location_selection_border"
+        >
+
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/citra_lansia"
+            android:layout_weight="0.4"
+            android:padding="5dp"
+            android:paddingLeft="5dp"
+            android:scaleType="fitXY"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/namaTempat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Tempat"
+                android:textAllCaps="false"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lokasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/namaTempat"
+                android:text="Lokasi"
+                android:textAllCaps="false"
+                android:textSize="24dp"
+                android:textStyle="italic"/>
+
+            <TextView
+                android:id="@+id/harga"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lokasi"
+                android:paddingTop="20dp"
+                android:text="@string/harga_kunjungan"
+                android:textAllCaps="false"
+                android:textSize="24dp"/>
+
+            <TextView
+                android:id="@+id/sisa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/harga"
+                android:text="@string/sisa_tempat"
+                android:textAllCaps="false"
+                android:textSize="24dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

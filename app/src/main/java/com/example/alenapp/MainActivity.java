@@ -2,6 +2,7 @@ package com.example.alenapp;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -42,7 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Button action handler.
         AppCompatButton buttonGo = findViewById(R.id.go_button);
-        buttonGo.setOnClickListener(actionNotAvailable());
+        buttonGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                start_select_lansia_place();
+            }
+        });
+
         findViewById(R.id.senior_daycare).setOnClickListener(actionNotAvailable());
         findViewById(R.id.antar_jemput).setOnClickListener(actionNotAvailable());
         findViewById(R.id.event).setOnClickListener(actionNotAvailable());
@@ -60,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
                 shorDateCalendarDialog();
             }
         });
+    }
+
+    /**
+     * Melihat daftar tempat perawatan lansia.
+     */
+    private void start_select_lansia_place() {
+        Intent switchActivityIntent = new Intent(MainActivity.this, SelectLansiaPlace.class);
+        startActivity(switchActivityIntent);
     }
 
     /**
