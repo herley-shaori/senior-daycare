@@ -2,9 +2,11 @@ package com.example.alenapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -25,8 +27,19 @@ public class SelectLansiaPlace extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.daycarePlaceDetail);
         listView.setAdapter(new ListCustomAdapter());
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent switchActivityIntent = new Intent(SelectLansiaPlace.this, LansiaPlaceServiceSelection.class);
+                switchActivityIntent.putExtra("namaTempat", namaTempat[position]);
+                startActivity(switchActivityIntent);
+            }
+        });
     }
 
+    /**
+     * Custom Adapter.
+     */
     class ListCustomAdapter extends BaseAdapter {
 
         @Override
@@ -88,10 +101,10 @@ public class SelectLansiaPlace extends AppCompatActivity {
     private void setHargaDaycareSetiapHari(int position, TextView hargaTv) {
         switch (position){
             case 0:
-                hargaTv.setText("Rp. "+"3.750.000"+" per hari.");
+                hargaTv.setText("Mulai "+"Rp. "+"250.000"+" per hari.");
                 break;
             case 1:
-                hargaTv.setText("Rp. "+"1.500.000"+" per hari.");
+                hargaTv.setText("Mulai "+"Rp. "+"250.000"+" per hari.");
                 break;
         }
     }

@@ -61,12 +61,7 @@ public class MainActivity extends AppCompatActivity {
         this.dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
         this.tvDateResult = findViewById(R.id.daycare_date);
         AppCompatButton buttonPickADate = findViewById(R.id.date_button);
-        buttonPickADate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                shorDateCalendarDialog();
-            }
-        });
+        buttonPickADate.setOnClickListener(v -> shorDateCalendarDialog());
     }
 
     /**
