@@ -16,6 +16,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.properties.Person;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -40,22 +42,7 @@ public class MainActivity extends AppCompatActivity {
         // Action bar background color.
         supportActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF")));
         setContentView(R.layout.activity_main);
-
-        // Button action handler.
-        AppCompatButton buttonGo = findViewById(R.id.go_button);
-        buttonGo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                start_select_lansia_place();
-            }
-        });
-
-        findViewById(R.id.senior_daycare).setOnClickListener(actionNotAvailable());
-        findViewById(R.id.antar_jemput).setOnClickListener(actionNotAvailable());
-        findViewById(R.id.event).setOnClickListener(actionNotAvailable());
-        findViewById(R.id.home).setOnClickListener(actionNotAvailable());
-        findViewById(R.id.my_order).setOnClickListener(actionNotAvailable());
-        findViewById(R.id.elite_rewards).setOnClickListener(actionNotAvailable());
+        buttonHandler();
 
         // Daycare schedule button handler.
         this.dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
@@ -65,10 +52,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Button handler.
+     */
+    private void buttonHandler() {
+        // Button action handler.
+        AppCompatButton buttonGo = findViewById(R.id.go_button);
+        buttonGo.setOnClickListener(v -> start_select_lansia_place());
+
+        findViewById(R.id.senior_daycare).setOnClickListener(actionNotAvailable());
+        findViewById(R.id.antar_jemput).setOnClickListener(actionNotAvailable());
+        findViewById(R.id.event).setOnClickListener(actionNotAvailable());
+        findViewById(R.id.home).setOnClickListener(actionNotAvailable());
+        findViewById(R.id.my_order).setOnClickListener(actionNotAvailable());
+        findViewById(R.id.elite_rewards).setOnClickListener(actionNotAvailable());
+    }
+
+    /**
      * Melihat daftar tempat perawatan lansia.
      */
     private void start_select_lansia_place() {
         Intent switchActivityIntent = new Intent(MainActivity.this, SelectLansiaPlace.class);
+        switchActivityIntent.putExtra("person",Person.getInstance());
         startActivity(switchActivityIntent);
     }
 

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ReviewBookingActivity"
     android:background="#D3D3D3">
+
     <TextView
         android:id="@+id/lokasiSeniorDaycareBooking"
         android:layout_width="wrap_content"
@@ -79,60 +80,18 @@
         android:textStyle="bold"
         android:layout_below="@id/garisKedua"/>
 
-    <RadioGroup
-        android:id="@+id/radiogrupSatu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pilihanMakanan"
-        android:tooltipText="Pilihan makanan utama">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nasi putih/merah.\nDadar telur bayam.\nGurame asam manis.
-                \nKopi/Teh.\nBuah potong.
-"
-                android:id="@+id/radioSatu"/>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/nasi_empat"
-                android:scaleType="fitXY"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp">
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nasi putih/merah.\nSayur capcay.\nAyam yakiniku.
-                \nKopi/Teh.\nBuah potong.
-"
-                android:id="@+id/radioDua"/>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/nasi_tiga"
-                android:scaleType="fitXY"/>
-        </LinearLayout>
-    </RadioGroup>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:id="@+id/foodListView"
+        android:layout_below="@id/pilihanMakanan">
+    </ListView>
 
     <View
         android:id="@+id/garisKetiga"
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:layout_below="@+id/radiogrupSatu"
+        android:layout_below="@+id/foodListView"
         android:background="#2196F3" />
 
     <TextView
@@ -146,32 +105,18 @@
         android:textStyle="bold"
         android:layout_below="@id/garisKetiga"/>
 
-
-    <TextView
-        android:id="@+id/pilihanSnackTeks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pilih Snack"
-        android:textSize="18dp"
-        android:textAllCaps="false"
+    <ListView
+        android:id="@+id/snackListView"
         android:layout_below="@id/pilihanSnack"
-        />
-
-    <Spinner
-        android:id="@+id/spinner4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:entries="@array/pilihanSnackSpinner"
-        android:spinnerMode="dropdown"
-        android:layout_toRightOf="@id/pilihanSnackTeks"
-        android:layout_below="@id/pilihanSnack"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="210dp">
+    </ListView>
 
     <View
         android:id="@+id/garisKeempat"
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:layout_below="@+id/spinner4"
+        android:layout_below="@+id/snackListView"
         android:background="#2196F3" />
 
     <TextView
@@ -212,7 +157,4 @@
         android:text="Pesan"
         android:layout_below="@id/spinner3"
         android:layout_centerHorizontal="true"/>
-
-
-
 </RelativeLayout>
