@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReviewBookingActivity"
+    android:background="#D3D3D3">
+
+    <TextView
+        android:id="@+id/lokasiSeniorDaycareBooking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Citra Premier Luxury Seniors Clubhouse"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/teksMakanan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Makanan:"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:layout_below="@id/lokasiSeniorDaycareBooking"
+        />
+
+    <TextView
+        android:id="@+id/isiMakanan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nasi putih/merah.\nSayur capcay.\nAyam yakiniku.
+                \nKopi/Teh.\nBuah potong.
+"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:layout_below="@id/lokasiSeniorDaycareBooking"
+        android:layout_toRightOf="@id/teksMakanan"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:id="@+id/teksSnack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Snack:"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:layout_below="@id/isiMakanan"
+        />
+
+    <TextView
+        android:id="@+id/isiSnack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pudding buah."
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:layout_below="@id/isiMakanan"
+        android:layout_toRightOf="@id/teksSnack"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:id="@+id/teksHargaTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Harga:"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:layout_below="@id/teksSnack"
+        />
+
+    <TextView
+        android:id="@+id/isiTeksHargaTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rp. 500.000"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:layout_below="@id/isiSnack"
+        android:layout_toRightOf="@id/teksHargaTotal"
+        android:layout_marginLeft="10dp"
+        />
+
+    <Button
+        android:id="@+id/tombolTotalKonfirmasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Konfirmasi"
+        android:layout_below="@id/teksHargaTotal"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

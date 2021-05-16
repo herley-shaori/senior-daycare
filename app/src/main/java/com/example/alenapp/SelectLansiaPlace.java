@@ -1,18 +1,16 @@
 package com.example.alenapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SelectLansiaPlace extends AppCompatActivity {
 
@@ -25,15 +23,33 @@ public class SelectLansiaPlace extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_lansia_place);
 
+        String actionBarTitle = "Pilihan Lokasi Rawat Lansia";
+        actionBarCustomTitle(actionBarTitle);
+
+        listViewStarter();
+    }
+
+    /**
+     * Custombar custom title.
+     * @param actionBarTitle
+     */
+    private void actionBarCustomTitle(String actionBarTitle) {
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.abs_layout);
+        TextView textView = findViewById(R.id.tvTitleActionBar);
+        textView.setText(actionBarTitle);
+    }
+
+    /**
+     * ListView starter.
+     */
+    private void listViewStarter() {
         ListView listView = findViewById(R.id.daycarePlaceDetail);
         listView.setAdapter(new ListCustomAdapter());
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent switchActivityIntent = new Intent(SelectLansiaPlace.this, LansiaPlaceServiceSelection.class);
-                switchActivityIntent.putExtra("namaTempat", namaTempat[position]);
-                startActivity(switchActivityIntent);
-            }
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Intent switchActivityIntent = new Intent(SelectLansiaPlace.this, LansiaPlaceServiceSelection.class);
+            switchActivityIntent.putExtra("namaTempat", namaTempat[position]);
+            startActivity(switchActivityIntent);
         });
     }
 

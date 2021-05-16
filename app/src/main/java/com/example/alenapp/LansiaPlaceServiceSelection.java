@@ -1,12 +1,13 @@
 package com.example.alenapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class LansiaPlaceServiceSelection extends AppCompatActivity {
 
@@ -16,6 +17,28 @@ public class LansiaPlaceServiceSelection extends AppCompatActivity {
         setContentView(R.layout.activity_lansia_place_service_selection);
 
         setTitleImage();
+        startADetailedActivity();
+    }
+
+    /**
+     * Start detailed booking activity.
+     */
+    private void startADetailedActivity() {
+        Intent switchActivityIntent = new Intent(LansiaPlaceServiceSelection.this, DetailBookingActivity.class);
+        findViewById(R.id.tombolLayananSatu).setOnClickListener(v -> startActivity(switchActivityIntent));
+        findViewById(R.id.tombolLayananDua).setOnClickListener(v -> startActivity(switchActivityIntent));
+        findViewById(R.id.tombolLayananTiga).setOnClickListener(v -> startActivity(switchActivityIntent));
+    }
+
+    /**
+     * Custom bar custom title.
+     * @param actionBarTitle
+     */
+    private void actionBarCustomTitle(String actionBarTitle) {
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.abs_layout);
+        TextView textView = findViewById(R.id.tvTitleActionBar);
+        textView.setText(actionBarTitle);
     }
 
     /**
@@ -27,8 +50,10 @@ public class LansiaPlaceServiceSelection extends AppCompatActivity {
         String namaTempat = previousIntent.getStringExtra("namaTempat");
         if(namaTempat.equals("Citra Premier Luxury Seniors Clubhouse")){
             imageView.setImageResource(R.drawable.citra_lansia);
+            actionBarCustomTitle("Citra Premier Luxury Seniors Clubhouse");
         }else if(namaTempat.equals("Panti Jompo Waluya Sejati Abadi")){
             imageView.setImageResource(R.drawable.waluya_lansia);
+            actionBarCustomTitle("Panti Jompo Waluya Sejati Abadi");
         }
     }
 }

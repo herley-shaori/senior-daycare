@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pilihanSnackSpinner">
+        <item>Pudding buah</item>
+        <item>Pudding cokelat</item>
+        <item>Edamame</item>
+        <item>Oat cookies</item>
+    </string-array>
+</resources>
