@@ -16,6 +16,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.properties.Food;
 import com.properties.Person;
 
 import java.text.SimpleDateFormat;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormatter;
     private TextView tvDateResult;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         this.tvDateResult = findViewById(R.id.daycare_date);
         AppCompatButton buttonPickADate = findViewById(R.id.date_button);
         buttonPickADate.setOnClickListener(v -> shorDateCalendarDialog());
+
+        // Intent setup.
+        this.intent = new Intent(MainActivity.this, SelectLansiaPlace.class);
     }
 
     /**
@@ -71,9 +76,7 @@ public class MainActivity extends AppCompatActivity {
      * Melihat daftar tempat perawatan lansia.
      */
     private void start_select_lansia_place() {
-        Intent switchActivityIntent = new Intent(MainActivity.this, SelectLansiaPlace.class);
-        switchActivityIntent.putExtra("person",Person.getInstance());
-        startActivity(switchActivityIntent);
+        startActivity(this.intent);
     }
 
     /**
@@ -121,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
                  * Update TextView dengan tanggal yang kita pilih
                  */
                 tvDateResult.setText(dateFormatter.format(newDate.getTime()));
+
+                // Person setup.
+                Person person = getPerson();
+                person.setDaycareDate(dateFormatter.format(newDate.getTime()));
             }
 
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
@@ -129,5 +136,18 @@ public class MainActivity extends AppCompatActivity {
          * Tampilkan DatePicker dialog
          */
         datePickerDialog.show();
+    }
+
+    /**
+     * Get existing person.
+     * @return
+     */
+    private Person getPerson() {
+        if(this.intent.getParcelableExtra("person") == null){
+            this.intent.putExtra("person", Person.getInstance());
+            return this.intent.getParcelableExtra("person");
+        }else{
+            return this.intent.getParcelableExtra("person");
+        }
     }
 }

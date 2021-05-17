@@ -13,13 +13,15 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.properties.Location;
 import com.properties.Person;
 
 public class SelectLansiaPlace extends AppCompatActivity {
 
-    int images[] = {R.drawable.citra_lansia, R.drawable.waluya_lansia};
-    String namaTempat[] = {"Citra Premier Luxury Seniors Clubhouse", "Panti Jompo Waluya Sejati Abadi"};
-    String lokasi[] = {"Jakarta", "Jakarta"};
+    private int images[] = {R.drawable.citra_lansia, R.drawable.waluya_lansia};
+    private String namaTempat[] = {"Citra Premier Luxury Seniors Clubhouse", "Panti Jompo Waluya Sejati Abadi"};
+    private String lokasi[] = {"Jakarta", "Jakarta"};
+    private Person person;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +31,7 @@ public class SelectLansiaPlace extends AppCompatActivity {
         String actionBarTitle = "Pilihan Lokasi Rawat Lansia";
         actionBarCustomTitle(actionBarTitle);
 
-        Person person = this.getIntent().getParcelableExtra("person");
-
-        System.out.println(person);
-        System.out.println("Sukses Parcel.");
+        this.person = this.getIntent().getParcelableExtra("person");
 
         listViewStarter();
     }
@@ -56,7 +55,10 @@ public class SelectLansiaPlace extends AppCompatActivity {
         listView.setAdapter(new ListCustomAdapter());
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Intent switchActivityIntent = new Intent(SelectLansiaPlace.this, LansiaPlaceServiceSelection.class);
+            Location location = new Location(namaTempat[position]);
+            this.person.setLocation(location);
             switchActivityIntent.putExtra("namaTempat", namaTempat[position]);
+            switchActivityIntent.putExtra("person", this.person);
             startActivity(switchActivityIntent);
         });
     }

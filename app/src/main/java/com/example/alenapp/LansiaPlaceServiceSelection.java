@@ -9,12 +9,21 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.properties.Location;
+import com.properties.Person;
+
 public class LansiaPlaceServiceSelection extends AppCompatActivity {
+    Person person;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lansia_place_service_selection);
+
+        this.person = this.getIntent().getParcelableExtra("person");
+
+        System.out.println("Location: "+this.person.getLocation().getLocation());
+        System.out.println("Date: "+this.person.getDaycareDate());
 
         setTitleImage();
         startADetailedActivity();
