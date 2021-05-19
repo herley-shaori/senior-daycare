@@ -8,7 +8,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         ActionBar supportActionBar = this.getSupportActionBar();
+
         // Action bar icon.
         supportActionBar.setDisplayShowCustomEnabled(true);
         LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -54,6 +57,24 @@ public class MainActivity extends AppCompatActivity {
 
         // Intent setup.
         this.intent = new Intent(MainActivity.this, SelectLansiaPlace.class);
+
+        // Spinner setup.
+        Spinner spinner = findViewById(R.id.spinner1);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position > 0){
+                    findViewById(R.id.go_button).setEnabled(false);
+                }else{
+                    findViewById(R.id.go_button).setEnabled(true);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     /**
@@ -76,7 +97,13 @@ public class MainActivity extends AppCompatActivity {
      * Melihat daftar tempat perawatan lansia.
      */
     private void start_select_lansia_place() {
-        startActivity(this.intent);
+        TextView daycareDate = findViewById(R.id.daycare_date);
+        if(daycareDate.getText().toString().isEmpty()){
+            Toast.makeText(MainActivity.this, "Pilih tanggal daycare dulu.",
+                    Toast.LENGTH_LONG).show();
+        }else{
+            startActivity(this.intent);
+        }
     }
 
     /**

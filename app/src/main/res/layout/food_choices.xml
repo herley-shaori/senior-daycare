@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nasi putih/merah.\nDadar telur bayam.\nGurame asam manis.
@@ -50,5 +50,4 @@
                 android:scaleType="fitXY"/>
         </LinearLayout>
     </RadioGroup>
-
 </RelativeLayout>

@@ -30,9 +30,6 @@
         android:id="@+id/isiMakanan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nasi putih/merah.\nSayur capcay.\nAyam yakiniku.
-                \nKopi/Teh.\nBuah potong.
-"
         android:textSize="18dp"
         android:textAllCaps="false"
         android:layout_below="@id/lokasiSeniorDaycareBooking"
@@ -54,7 +51,6 @@
         android:id="@+id/isiSnack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pudding buah."
         android:textSize="18dp"
         android:textAllCaps="false"
         android:layout_below="@id/isiMakanan"
@@ -63,23 +59,66 @@
         />
 
     <TextView
-        android:id="@+id/teksHargaTotal"
+        android:id="@+id/teksTransport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Harga:"
+        android:text="Transport:"
         android:textSize="18dp"
         android:textAllCaps="false"
         android:layout_below="@id/teksSnack"
         />
 
     <TextView
-        android:id="@+id/isiTeksHargaTotal"
+        android:id="@+id/isiTransport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rp. 500.000"
         android:textSize="18dp"
         android:textAllCaps="false"
         android:layout_below="@id/isiSnack"
+        android:layout_toRightOf="@id/teksTransport"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:id="@+id/teksHargaLokasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Harga Lokasi:"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:layout_below="@id/teksTransport"
+        />
+
+    <TextView
+        android:id="@+id/isiTeksHargaLokasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:layout_below="@id/isiTransport"
+        android:layout_toRightOf="@id/teksHargaLokasi"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:id="@+id/teksHargaTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Harga:"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:layout_below="@id/teksHargaLokasi"
+        />
+
+    <TextView
+        android:id="@+id/isiTeksHargaTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:layout_below="@id/isiTeksHargaLokasi"
         android:layout_toRightOf="@id/teksHargaTotal"
         android:layout_marginLeft="10dp"
         />

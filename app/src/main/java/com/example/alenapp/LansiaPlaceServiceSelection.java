@@ -2,14 +2,12 @@ package com.example.alenapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.properties.Location;
 import com.properties.Person;
 
 public class LansiaPlaceServiceSelection extends AppCompatActivity {
@@ -22,9 +20,6 @@ public class LansiaPlaceServiceSelection extends AppCompatActivity {
 
         this.person = this.getIntent().getParcelableExtra("person");
 
-        System.out.println("Location: "+this.person.getLocation().getLocation());
-        System.out.println("Date: "+this.person.getDaycareDate());
-
         setTitleImage();
         startADetailedActivity();
     }
@@ -34,9 +29,11 @@ public class LansiaPlaceServiceSelection extends AppCompatActivity {
      */
     private void startADetailedActivity() {
         Intent switchActivityIntent = new Intent(LansiaPlaceServiceSelection.this, DetailBookingActivity.class);
-        findViewById(R.id.tombolLayananSatu).setOnClickListener(v -> startActivity(switchActivityIntent));
-        findViewById(R.id.tombolLayananDua).setOnClickListener(v -> startActivity(switchActivityIntent));
-        findViewById(R.id.tombolLayananTiga).setOnClickListener(v -> startActivity(switchActivityIntent));
+        findViewById(R.id.tombolLayananSatu).setOnClickListener(v -> {person.getLocation().setChoiceOfStay(1);
+        switchActivityIntent.putExtra("person",this.person);
+        startActivity(switchActivityIntent);});
+        findViewById(R.id.tombolLayananDua).setOnClickListener(v -> {person.getLocation().setChoiceOfStay(2);switchActivityIntent.putExtra("person",this.person);startActivity(switchActivityIntent);});
+        findViewById(R.id.tombolLayananTiga).setOnClickListener(v -> {person.getLocation().setChoiceOfStay(3);switchActivityIntent.putExtra("person",this.person);startActivity(switchActivityIntent);});
     }
 
     /**

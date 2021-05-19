@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Salad ayam."
-                android:id="@+id/radioSnacTiga"/>
+                android:id="@+id/radioSnackTiga"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"

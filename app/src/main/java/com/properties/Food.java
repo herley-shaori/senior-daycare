@@ -5,12 +5,14 @@ import android.os.Parcelable;
 
 public class Food implements Parcelable {
 
+    private int hargaTotalFood;
+
     public Food() {
 
     }
 
     public Food(Parcel in) {
-
+        this.hargaTotalFood = in.readInt();
     }
 
     @Override
@@ -20,7 +22,7 @@ public class Food implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
+        dest.writeInt(this.hargaTotalFood);
     }
 
     public static final Parcelable.Creator<Food> CREATOR = new Parcelable.Creator<Food>() {
@@ -35,4 +37,12 @@ public class Food implements Parcelable {
             return new Food[size];
         }
     };
+
+    public int getHargaTotalFood() {
+        return hargaTotalFood;
+    }
+
+    public void setHargaTotalFood(int hargaTotalFood) {
+        this.hargaTotalFood = hargaTotalFood;
+    }
 }

@@ -33,6 +33,8 @@ class PersonImp implements Person{
     public PersonImp(Parcel source){
         this.food = source.readParcelable(getClass().getClassLoader());
         this.location = source.readParcelable(getClass().getClassLoader());
+        this.snack = source.readParcelable(getClass().getClassLoader());
+        this.mobileTransport = source.readParcelable(getClass().getClassLoader());
         this.daycareDate = source.readString();
     }
 
@@ -48,6 +50,8 @@ class PersonImp implements Person{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeParcelable(this.food, flags);
         dest.writeParcelable(this.location, flags);
+        dest.writeParcelable(this.snack, flags);
+        dest.writeParcelable(this.mobileTransport, flags);
         dest.writeString(this.daycareDate);
     }
 

@@ -5,12 +5,14 @@ import android.os.Parcelable;
 
 public class MobileTransport implements Parcelable {
 
+    private int totalHargaMobileTransport;
+
     public MobileTransport(){
 
     }
 
     public MobileTransport(Parcel in){
-
+        this.setTotalHargaMobileTransport(in.readInt());
     }
 
     @Override
@@ -20,7 +22,7 @@ public class MobileTransport implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
+        dest.writeInt(this.getTotalHargaMobileTransport());
     }
 
     public static final Parcelable.Creator<MobileTransport> CREATOR = new Parcelable.Creator<MobileTransport>() {
@@ -34,4 +36,12 @@ public class MobileTransport implements Parcelable {
             return new MobileTransport[size];
         }
     };
+
+    public int getTotalHargaMobileTransport() {
+        return totalHargaMobileTransport;
+    }
+
+    public void setTotalHargaMobileTransport(int totalHargaMobileTransport) {
+        this.totalHargaMobileTransport = totalHargaMobileTransport;
+    }
 }

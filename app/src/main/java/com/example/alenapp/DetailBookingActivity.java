@@ -1,8 +1,5 @@
 package com.example.alenapp;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,22 +8,134 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.properties.Food;
+import com.properties.Harga;
+import com.properties.MobileTransport;
+import com.properties.Person;
+import com.properties.Snack;
+
 public class DetailBookingActivity extends AppCompatActivity {
+    private Person person;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_booking);
 
+        this.person = this.getIntent().getParcelableExtra("person");
+
+        Spinner lengthOfStaySpinner = findViewById(R.id.spinner2);
+        lengthOfStaySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Pengaman tombol.
+                if(position == 0){
+                    findViewById(R.id.pesanKonfirmasiPembayaran).setEnabled(false);
+                }else{
+                    findViewById(R.id.pesanKonfirmasiPembayaran).setEnabled(true);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });;
+
         actionBarCustomTitle("Detail Pesanan");
         findViewById(R.id.pesanKonfirmasiPembayaran).setOnClickListener(v -> {
+
+            Food food = foodConfig();
+            Snack snack = snackConfig();
+            this.person.getLocation().setTotalHargaLocation(lengthOfStaySpinner.getSelectedItemPosition()*this.person.getLocation().getHargaService());
+            this.person.getLocation().setLengthOfStay(lengthOfStaySpinner.getSelectedItemPosition());
+
+            MobileTransport mobileTransport = mobileTransportConfig();
+            this.person.setFoodChoices(food);
+            this.person.setSnackChoices(snack);
+            this.person.setMobileTransport(mobileTransport);
+
             Intent intent = new Intent(DetailBookingActivity.this, ReviewBookingActivity.class);
+            intent.putExtra("person", this.person);
+
             startActivity(intent);
         });
 
         listAdapterSetup();
+    }
+
+    /**
+     * Mobile transport config.
+     * @return
+     */
+    private MobileTransport mobileTransportConfig() {
+        MobileTransport mobileTransport = new MobileTransport();
+        Spinner spinnerTiga = findViewById(R.id.spinner3);
+        if(spinnerTiga.getSelectedItemPosition() == 0){
+            mobileTransport.setTotalHargaMobileTransport(Harga.FREED_TRANSPORT);
+        }else if(spinnerTiga.getSelectedItemPosition() == 1){
+            mobileTransport.setTotalHargaMobileTransport(Harga.INNOVA_TRANSPORT);
+        }else if(spinnerTiga.getSelectedItemPosition() == 2){
+            mobileTransport.setTotalHargaMobileTransport(Harga.MOBILIO_TRANSPORT);
+        }
+        return mobileTransport;
+    }
+
+    /**
+     * Food config.
+     * @return
+     */
+    private Food foodConfig() {
+        Food food = new Food();
+        RadioButton radioButtonSatu = findViewById(R.id.radioSatu);
+        RadioButton radioButtonDua = findViewById(R.id.radioDua);
+        int hargaTotalFood = 0;
+        if(radioButtonSatu.isChecked()){
+            hargaTotalFood += Harga.NASI_NOL;
+        }
+
+        if(radioButtonDua.isChecked()){
+            hargaTotalFood += Harga.NASI_SATU;
+        }
+        food.setHargaTotalFood(hargaTotalFood);
+        return food;
+    }
+
+    /**
+     * Snack config.
+     * @return
+     */
+    private Snack snackConfig() {
+        RadioButton radioButtonTiga = findViewById(R.id.radioSnackSatu);
+        RadioButton radioButtonEmpat = findViewById(R.id.radioSnackDua);
+        RadioButton radioButtonLima = findViewById(R.id.radioSnackTiga);
+        RadioButton radioButtonEnam = findViewById(R.id.radioSnackEmpat);
+
+        Snack snack = new Snack();
+        int hargaTotalSnack = 0;
+        if(radioButtonTiga.isChecked()){
+            hargaTotalSnack += Harga.SNACK_SATU;
+        }
+        if(radioButtonEmpat.isChecked()){
+            hargaTotalSnack += Harga.SNACK_DUA;
+        }
+        if(radioButtonLima.isChecked()){
+            hargaTotalSnack += Harga.SNACK_TIGA;
+        }
+        if(radioButtonEnam.isChecked()){
+            hargaTotalSnack += Harga.SNACK_EMPAT;
+        }
+
+        snack.setHargaTotalSnack(hargaTotalSnack);
+        return snack;
     }
 
     /**

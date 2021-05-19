@@ -120,7 +120,6 @@
                     android:background="@drawable/textfield_border"
                     android:gravity="center"
                     android:outlineAmbientShadowColor="@color/black"
-                    android:text="No date selected."
                     android:textSize="24dp" />
 
                 <androidx.appcompat.widget.AppCompatButton

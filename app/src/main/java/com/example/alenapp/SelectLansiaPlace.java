@@ -55,7 +55,7 @@ public class SelectLansiaPlace extends AppCompatActivity {
         listView.setAdapter(new ListCustomAdapter());
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Intent switchActivityIntent = new Intent(SelectLansiaPlace.this, LansiaPlaceServiceSelection.class);
-            Location location = new Location(namaTempat[position]);
+            Location location = new Location(namaTempat[position],0,0,0,0);
             this.person.setLocation(location);
             switchActivityIntent.putExtra("namaTempat", namaTempat[position]);
             switchActivityIntent.putExtra("person", this.person);
