@@ -82,9 +82,10 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="210dp"
+        android:layout_height="150dp"
         android:id="@+id/foodListView"
-        android:layout_below="@id/pilihanMakanan">
+        android:layout_below="@id/pilihanMakanan"
+        >
     </ListView>
 
     <View
@@ -109,7 +110,7 @@
         android:id="@+id/snackListView"
         android:layout_below="@id/pilihanSnack"
         android:layout_width="match_parent"
-        android:layout_height="210dp">
+        android:layout_height="150dp">
     </ListView>
 
     <View
@@ -155,6 +156,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pesan"
-        android:layout_below="@id/spinner3"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>
